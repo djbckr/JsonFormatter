@@ -60,9 +60,10 @@
         return;
       }
 
-      var jsondata = $("#jsondata")[0];
-      $("#pos").html(jsondata.selectionStart + " : " + jsondata.selectionEnd);
-
+      setTimeout(function() {
+        var jsondata = $("#jsondata")[0];
+        $("#pos").html(jsondata.selectionStart + " : " + jsondata.selectionEnd);
+      }, 10);
     }
 
     $(document).keydown(keyEvent);
