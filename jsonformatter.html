@@ -31,7 +31,10 @@
     <p>Paste text below, then press Alt+Enter to format.</p>
     <p id="errMsg">x</p>
     <textarea id="jsondata" autofocus></textarea>
-    <p id="pos"></p>
+    <p>
+      <input type="checkbox" id="unformat" name="unformat">
+      <label for="unformat">Unformat</label>
+    </p><p id="pos"></p>
   </div>
 
   <script type="text/javascript">
@@ -48,7 +51,11 @@
       var objs;
       try {
         objs = JSON.parse(theValue);
-        theValue = JSON.stringify(objs, null, '  ');
+        if ($("#unformat").checked) {
+          theValue = JSON.stringify(objs);
+        } else {
+          theValue = JSON.stringify(objs, null, '  ');
+        }
         elem.val(theValue);
         elem.select();
         $("#errMsg").hide(400);
