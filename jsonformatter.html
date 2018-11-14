@@ -51,7 +51,7 @@
       var objs;
       try {
         objs = JSON.parse(theValue);
-        if ($("#unformat").checked) {
+        if ($("#unformat").prop( "checked", true )) {
           theValue = JSON.stringify(objs);
         } else {
           theValue = JSON.stringify(objs, null, '  ');
